@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title> Varejo da Tecnologia </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-infinite-scroll>
+    <ion-grid>
+      <ion-card *ngFor="let produto of onObterProdutos();let i=index">
+        <ion-row>
+          <ion-col>
+            <img [src]="produto.imagem" class="center" />
+          </ion-col>
+        </ion-row>
+        <ion-card-header>
+          <ion-row>
+            <ion-col>
+              <ion-card-subtitle> {{ produto.nome }}</ion-card-subtitle>
+            </ion-col>
+            <ion-chip color="danger" *ngIf="produto.promocao === true">
+              <ion-label color="danger">Promoção</ion-label>
+            </ion-chip>
+          </ion-row>
+          <ion-row>
+            <ion-col size="5">
+              <ion-card-title
+                >{{ produto.preco | currency: 'BRL' }}</ion-card-title
+              >
+            </ion-col>
+          </ion-row>
+        </ion-card-header>
+        <ion-card-content style="text-align: justify">
+          {{ produto.descricao }}
+        </ion-card-content>
+        <ion-button expand="full" color="success" (click)="comprar(produto)">
+          Comprar
+        </ion-button>
+      </ion-card>
+    </ion-grid>
+  </ion-infinite-scroll>
+</ion-content>
