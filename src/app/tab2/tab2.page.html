@@ -18,10 +18,14 @@
         <ion-label>
           <h2>{{ item.produto.nome }}</h2>
           <div class="botoes">
-            <ion-button color="success"
+            <ion-button
+              color="success"
+              (click)="this.carrinhoService.adicionarItem(item)"
               ><ion-icon name="add-circle"></ion-icon
             ></ion-button>
-            <ion-button color="danger"
+            <ion-button
+              color="danger"
+              (click)="this.carrinhoService.removerItem(item)"
               ><ion-icon name="remove-circle-outline"></ion-icon
             ></ion-button>
           </div>
@@ -35,6 +39,7 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-title>Total: </ion-title>
+    <ion-title slot="end">Total: </ion-title>
   </ion-toolbar>
+  <ion-button expand="full">Finalizar compra</ion-button>
 </ion-footer>

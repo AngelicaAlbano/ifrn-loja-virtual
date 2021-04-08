@@ -8,6 +8,7 @@ import { CarrinhoService } from "../model/carrinho.service";
   styleUrls: ["tab2.page.scss"],
 })
 export class Tab2Page {
+  total: number = 0;
   constructor(private carrinhoService: CarrinhoService) {}
 
   onObterItens(): ItemPedido[] {

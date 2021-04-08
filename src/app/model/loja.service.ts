@@ -15,8 +15,8 @@ export class LojaService {
         descricao: 'Smart TV LED 50" Samsung Crystal 4K HDR UN50TU8000GXZD',
         preco: 3700,
         imagem: "https://i.zst.com.br/thumbs/12/2e/f/1115021059.jpg",
-        estoque: 5.0,
-        promocao: false,
+        estoque: 50,
+        promocao: true,
         tipo: "Eletroeletrônicos",
       },
       {
@@ -27,7 +27,7 @@ export class LojaService {
         preco: 1439,
         imagem:
           "https://brmotorola.vteximg.com.br/arquivos/ids/165352-1000-1000/Moto-G9_ELECTRIC-BLUE_PDP-HERO.png?v=637353293285430000",
-        estoque: 1.0,
+        estoque: 100,
         promocao: true,
         tipo: "Telefonia",
       },
@@ -47,6 +47,6 @@ export class LojaService {
   }
 
   obterProdutos(): Produto[] {
-    return this.produtos;
+    return [...this.produtos];
   }
 }

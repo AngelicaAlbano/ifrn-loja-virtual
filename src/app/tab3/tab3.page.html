@@ -1,17 +1,20 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>Promoções </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list *ngFor="let produto of onObterProdutos();let i= index">
+    <ion-item *ngIf="produto.promocao === true">
+      <ion-img [src]="produto.imagem" class="miniatura"></ion-img>
+      <ion-label>
+        <h2>{{ produto.nome }}</h2>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+        <h3>{{ produto.preco | currency: 'BRL' }}</h3>
+        <p>{{ produto.descricao }}</p>
+        <p>Estoque: {{ produto.estoque }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
